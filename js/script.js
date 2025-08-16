@@ -51,21 +51,105 @@ function initMobileMenuClose() {
     });
 }
 
-// Handle contact form
+// Handle contact form with Formspree
 function initContactForm() {
     const contactForm = document.querySelector('.contact-form');
     if (contactForm) {
+        // Verificar si el formulario fue enviado exitosamente
+        checkFormSubmissionStatus();
+
         contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
+            // No prevenir el comportamiento por defecto - permitir que Formspree maneje el envío
 
-            // Aquí puedes agregar la lógica para enviar el formulario
-            // Por ahora, solo mostramos un mensaje de confirmación
-            alert('¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.');
+            // Mostrar indicador de carga
+            const submitButton = contactForm.querySelector('button[type="submit"]');
+            const originalText = submitButton.textContent;
+            submitButton.textContent = 'Enviando...';
+            submitButton.disabled = true;
 
-            // Limpiar formulario
-            contactForm.reset();
+            // Agregar clase de loading al formulario
+            contactForm.classList.add('form-submitting');
+
+            // Restaurar el botón después de un tiempo (por si hay error de red)
+            setTimeout(() => {
+                submitButton.textContent = originalText;
+                submitButton.disabled = false;
+                contactForm.classList.remove('form-submitting');
+            }, 10000);
         });
     }
+}
+
+// Verificar si el formulario fue enviado exitosamente
+function checkFormSubmissionStatus() {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('enviado') === 'true') {
+        // Mostrar mensaje de éxito
+        showSuccessMessage();
+        // Limpiar la URL
+        window.history.replaceState({}, document.title, window.location.pathname);
+    }
+}
+
+// Mostrar mensaje de éxito
+function showSuccessMessage() {
+    // Crear un elemento de notificación
+    const successDiv = document.createElement('div');
+    successDiv.className = 'success-notification';
+    successDiv.innerHTML = `
+        <div class="success-content">
+            <span class="success-icon">✅</span>
+            <div class="success-message">
+                <h4>¡Mensaje enviado exitosamente!</h4>
+                <p>Nos pondremos en contacto contigo pronto.</p>
+            </div>
+            <button class="success-close" onclick="this.parentElement.parentElement.remove()">&times;</button>
+        </div>
+    `;
+
+    // Insertar al inicio del body
+    document.body.insertBefore(successDiv, document.body.firstChild);
+
+    // Auto-remover después de 8 segundos
+    setTimeout(() => {
+        if (successDiv.parentElement) {
+            successDiv.style.opacity = '0';
+            setTimeout(() => {
+                if (successDiv.parentElement) {
+                    successDiv.remove();
+                }
+            }, 300);
+        }
+    }, 8000);
+}
+
+// Mostrar mensaje de error (opcional)
+function showErrorMessage() {
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'error-notification';
+    errorDiv.innerHTML = `
+        <div class="error-content">
+            <span class="error-icon">❌</span>
+            <div class="error-message">
+                <h4>Error al enviar el mensaje</h4>
+                <p>Por favor, inténtalo nuevamente o contáctanos directamente.</p>
+            </div>
+            <button class="error-close" onclick="this.parentElement.parentElement.remove()">&times;</button>
+        </div>
+    `;
+
+    document.body.insertBefore(errorDiv, document.body.firstChild);
+
+    setTimeout(() => {
+        if (errorDiv.parentElement) {
+            errorDiv.style.opacity = '0';
+            setTimeout(() => {
+                if (errorDiv.parentElement) {
+                    errorDiv.remove();
+                }
+            }, 300);
+        }
+    }, 8000);
 }
 
 // Initialize when DOM is loaded

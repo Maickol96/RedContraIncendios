@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -58,14 +59,14 @@
         <!-- Contact Form -->
         <div class="contact-form-section scroll-animate">
             <h3>Solicita una Cotización</h3>
-            <form class="contact-form">
+            <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
                 <div class="form-row">
-                    <input type="text" placeholder="Nombre completo" required>
-                    <input type="email" placeholder="Email" required>
+                    <input type="text" name="nombre" placeholder="Nombre completo" required>
+                    <input type="email" name="email" placeholder="Email" required>
                 </div>
                 <div class="form-row">
-                    <input type="tel" placeholder="Teléfono" required>
-                    <select required>
+                    <input type="tel" name="telefono" placeholder="Teléfono" required>
+                    <select name="servicio" required>
                         <option value="">Tipo de servicio</option>
                         <option value="consultoria">Consultoría</option>
                         <option value="ipm">Servicios IPM</option>
@@ -75,7 +76,13 @@
                         <option value="emergencia">Servicio de Emergencia</option>
                     </select>
                 </div>
-                <textarea placeholder="Describe tu proyecto o necesidad" rows="5" required></textarea>
+                <textarea name="mensaje" placeholder="Describe tu proyecto o necesidad" rows="5" required></textarea>
+
+                <!-- Campos ocultos para Formspree -->
+                <input type="hidden" name="_subject" value="Nueva solicitud de cotización - RED INGENIERÍA S.A.S">
+                <input type="hidden" name="_next" value="https://tu-dominio.com/pages/contacto.html?enviado=true">
+                <input type="hidden" name="_captcha" value="false">
+
                 <button type="submit" class="cta-button primary">Enviar Solicitud</button>
             </form>
         </div>
