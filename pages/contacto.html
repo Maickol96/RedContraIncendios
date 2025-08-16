@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RED INGENIERÍA S.A.S - Contacto</title>
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="icon" type="image/png" href="../imagenes/logo.png">
 </head>
 <body>
 <!-- Header -->
 <header>
     <nav class="container">
         <div class="logo">
-            <div class="logo-icon"></div>
+            <img src="../imagenes/logo.png" alt="RED INGENIERÍA S.A.S Logo" class="logo-icon">
             RED INGENIERÍA S.A.S
         </div>
         <ul class="nav-menu">
@@ -32,13 +33,13 @@
             <div class="contact-item scroll-animate">
                 <div class="contact-icon">📱</div>
                 <h3>Teléfono</h3>
-                <p>314 288 0807</p>
+                <p><a href="tel:+573142880807">314 288 0807</a></p>
             </div>
 
             <div class="contact-item scroll-animate">
                 <div class="contact-icon">✉️</div>
                 <h3>Email</h3>
-                <p>redingenieriacol@gmail.com</p>
+                <p><a href="mailto:redingenieriacol@gmail.com">redingenieriacol@gmail.com</a></p>
             </div>
 
             <div class="contact-item scroll-animate">
@@ -50,8 +51,33 @@
             <div class="contact-item scroll-animate">
                 <div class="contact-icon">📸</div>
                 <h3>Instagram</h3>
-                <p>@red.ingenieria</p>
+                <p><a href="https://instagram.com/red.ingenieria" target="_blank">@red.ingenieria</a></p>
             </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact-form-section scroll-animate">
+            <h3>Solicita una Cotización</h3>
+            <form class="contact-form">
+                <div class="form-row">
+                    <input type="text" placeholder="Nombre completo" required>
+                    <input type="email" placeholder="Email" required>
+                </div>
+                <div class="form-row">
+                    <input type="tel" placeholder="Teléfono" required>
+                    <select required>
+                        <option value="">Tipo de servicio</option>
+                        <option value="consultoria">Consultoría</option>
+                        <option value="ipm">Servicios IPM</option>
+                        <option value="seguridad-humana">Estudios de Seguridad Humana</option>
+                        <option value="ingenieria">Ingeniería de Detalle</option>
+                        <option value="epc">Proyectos EPC</option>
+                        <option value="emergencia">Servicio de Emergencia</option>
+                    </select>
+                </div>
+                <textarea placeholder="Describe tu proyecto o necesidad" rows="5" required></textarea>
+                <button type="submit" class="cta-button primary">Enviar Solicitud</button>
+            </form>
         </div>
     </div>
 </section>
@@ -61,7 +87,10 @@
     <div class="container">
         <div class="footer-content">
             <div class="footer-section">
-                <h3>RED INGENIERÍA S.A.S</h3>
+                <div class="footer-logo">
+                    <img src="../imagenes/logo.png" alt="RED INGENIERÍA S.A.S" class="footer-logo-img">
+                    <h3>RED INGENIERÍA S.A.S</h3>
+                </div>
                 <p>Tu aliado en prevención y control de incendios. Ofrecemos soluciones de calidad, adaptadas a las necesidades específicas de nuestros clientes.</p>
             </div>
             <div class="footer-section">
