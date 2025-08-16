@@ -13,7 +13,12 @@
 @import url('./modules/forms.css');
 @import url('./modules/footer.css');
 @import url('./modules/animations.css');
+@import url('./modules/about.css');
+@import url('./modules/services.css');
+@import url('./modules/company-values.css');
 @import url('./modules/responsive.css');
+
+/* Custom overrides or additional styles can go here */
 
 /* Custom overrides or additional styles can go here */
 
