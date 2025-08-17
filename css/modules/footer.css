@@ -26,6 +26,21 @@ footer {
     opacity: 0.9;
 }
 
+/* Footer contact links styling */
+.footer-section a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease, opacity 0.3s ease;
+    display: inline-block;
+    margin: 2px 0;
+}
+
+.footer-section a:hover {
+    color: var(--accent-color);
+    opacity: 1;
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
+}
+
 .footer-logo {
     display: flex;
     align-items: center;
