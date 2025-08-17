@@ -18,4 +18,164 @@
 @import url('./modules/company-values.css');
 @import url('./modules/responsive.css');
 
-/* Custom overrides or additional styles can go here */
+/* ===================================
+   CTA SECTION - OVERRIDE STYLES
+   Estilos específicos para corregir el problema
+=================================== */
+
+.cta {
+    padding: 120px 0 !important;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) !important;
+    color: white !important;
+    text-align: center !important;
+    margin-bottom: 0 !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.cta-content {
+    max-width: 900px !important;
+    margin: 0 auto !important;
+    padding: 0 20px !important;
+    text-align: center !important;
+}
+
+.cta-content h2 {
+    font-size: 3.2rem !important;
+    margin-bottom: 2rem !important;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3) !important;
+    line-height: 1.2 !important;
+    text-align: center !important;
+    color: white !important;
+}
+
+.cta-content p {
+    font-size: 1.4rem !important;
+    margin-bottom: 3.5rem !important;
+    opacity: 0.95 !important;
+    line-height: 1.6 !important;
+    text-align: center !important;
+    color: white !important;
+    max-width: 700px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.cta-buttons {
+    display: flex !important;
+    gap: 2rem !important;
+    justify-content: center !important;
+    margin-bottom: 4rem !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+}
+
+.cta-features {
+    display: flex !important;
+    gap: 3rem !important;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+    margin-top: 2rem !important;
+    align-items: center !important;
+}
+
+.cta-feature {
+    display: flex !important;
+    align-items: center !important;
+    gap: 1rem !important;
+    padding: 1.2rem 2rem !important;
+    background: rgba(255, 255, 255, 0.15) !important;
+    border-radius: 50px !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    transition: all 0.3s ease !important;
+    min-width: 200px !important;
+    justify-content: center !important;
+    text-align: center !important;
+}
+
+.cta-feature:hover {
+    background: rgba(255, 255, 255, 0.25) !important;
+    transform: translateY(-3px) !important;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3) !important;
+}
+
+.cta-feature-icon {
+    font-size: 1.6rem !important;
+    color: var(--accent-color) !important;
+    filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.6)) !important;
+}
+
+.cta-feature span:last-child {
+    font-weight: 600 !important;
+    font-size: 1.1rem !important;
+    color: white !important;
+}
+
+.cta-button.large {
+    padding: 1.5rem 3rem !important;
+    font-size: 1.3rem !important;
+    font-weight: bold !important;
+    min-width: 220px !important;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4) !important;
+    transition: all 0.3s ease !important;
+    border-radius: 50px !important;
+    text-decoration: none !important;
+    display: inline-block !important;
+    text-align: center !important;
+}
+
+.cta-button.large:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5) !important;
+}
+
+/* Responsive para CTA */
+@media (max-width: 768px) {
+    .cta {
+        padding: 80px 0 !important;
+    }
+
+    .cta-content h2 {
+        font-size: 2.5rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    .cta-content p {
+        font-size: 1.2rem !important;
+        margin-bottom: 2.5rem !important;
+    }
+
+    .cta-buttons {
+        flex-direction: column !important;
+        gap: 1rem !important;
+        margin-bottom: 3rem !important;
+    }
+
+    .cta-features {
+        flex-direction: column !important;
+        gap: 1.5rem !important;
+    }
+
+    .cta-button.large {
+        width: 100% !important;
+        max-width: 300px !important;
+        padding: 1.2rem 2rem !important;
+        font-size: 1.1rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .cta-content h2 {
+        font-size: 2rem !important;
+    }
+
+    .cta-content p {
+        font-size: 1.1rem !important;
+    }
+
+    .cta-feature {
+        min-width: auto !important;
+        padding: 1rem 1.5rem !important;
+    }
+}
